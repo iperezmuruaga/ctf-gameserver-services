@@ -6,9 +6,12 @@ RUN get checkout master
 
 RUN git clone git://github.com/pymodbus-dev/pymodbus.git
 RUN cd pymodbus
-RUN pip3 install -r requirements.txt
+RUN sudo pip3 install -r requirements.txt
 
-RUN cd 
+RUN python3 bezeroa.py
+RUN docker build -t PLCBezeroa
+# Ejecutar el contenedor Docker
+#RUN docker run --rm PLCBezeroa
 
 
 

@@ -7,27 +7,7 @@ RUN docker build -t OpenPLCRuntime .
 #Ejecutar el contenedor Docker:
 #RUN docker run --name OpenPLRuntime -d -p 8080:8080 -p 502:502 -v /home/isard/Descargas/ctf-gameserver-services/oterronka/service/OpenPLCRuntime/Scripts:/home/openplc/scripts OpenPLCRuntime
 
-#abrir un navegador para acceder al interfaz de openplc runtime
 
-# Instalar las dependencias
-RUN apt-get update && apt-get install -y \
-    xvfb \
-    chromium-browser \
-    && rm -rf /var/lib/apt/lists/*
-
-# Crear un script para iniciar el navegador
-RUN echo '#!/bin/bash\n' \
-    'export DISPLAY=:99\n' \
-    'Xvfb :99 -screen 0 1024x768x16 &\n' \
-    'chromium-browser --no-sandbox --disable-gpu "$@"\n' \
-    > /usr/local/bin/start-browser && chmod +x /usr/local/bin/start-browser
-
-# Comando para abrir una URL específica
-CMD ["start-browser", "http://localhost:8080"]
-# Construir la imagen Docker
-RUN docker build -t navegador-con-url
-# Ejecutar el contenedor Docker
-#RUN docker run --rm navegador-con-url
 
 
 

@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 # Instalar las dependencias
-RUN apt-get update && apt-get install -y \
+RUN sudo apt-get update && sudo apt-get install -y \
     xvfb \
     chromium-browser \
     && rm -rf /var/lib/apt/lists/*

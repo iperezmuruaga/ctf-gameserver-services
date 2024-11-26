@@ -83,7 +83,7 @@ class MyChecker(checkerlib.BaseChecker):
     #Function to check if an user exists
     def _check_ssh_user(self, username):
         ssh_session = self.client
-        command = f"docker exec pasapasa_ssh_1 sh -c 'id {username}'"
+        command = f"docker exec oterronka_ssh_1 sh -c 'id {username}'"
         stdin, stdout, stderr = ssh_session.exec_command(command)
         if stderr.channel.recv_exit_status() != 0:
             return False
@@ -92,7 +92,7 @@ class MyChecker(checkerlib.BaseChecker):
     @ssh_connect()
     def _check_web_integrity(self, path):
         ssh_session = self.client
-        command = f"docker exec pasapasa_web_1 sh -c 'cat {path}'"
+        command = f"docker exec oterronka_web_1 sh -c 'cat {path}'"
         stdin, stdout, stderr = ssh_session.exec_command(command)
         if stderr.channel.recv_exit_status() != 0:
             return False
@@ -104,7 +104,7 @@ class MyChecker(checkerlib.BaseChecker):
     @ssh_connect()
     def _check_ssh_integrity(self, path):
         ssh_session = self.client
-        command = f"docker exec pasapasa_ssh_1 sh -c 'cat {path}'"
+        command = f"docker exec oterronka_ssh_1 sh -c 'cat {path}'"
         stdin, stdout, stderr = ssh_session.exec_command(command)
         if stderr.channel.recv_exit_status() != 0:
             return False
@@ -116,7 +116,7 @@ class MyChecker(checkerlib.BaseChecker):
     # Private Funcs - Return False if error
     def _add_new_flag(self, ssh_session, flag):
         # Execute the file creation command in the container
-        command = f"docker exec pasapasa_ssh_1 sh -c 'echo {flag} >> /tmp/flag.txt'"
+        command = f"docker exec oterronka_ssh_1 sh -c 'echo {flag} >> /tmp/flag.txt'"
         stdin, stdout, stderr = ssh_session.exec_command(command)
 
         # Check if the command executed successfully
@@ -129,7 +129,7 @@ class MyChecker(checkerlib.BaseChecker):
     @ssh_connect()
     def _check_flag_present(self, flag):
         ssh_session = self.client
-        command = f"docker exec pasapasa_ssh_1 sh -c 'grep {flag} /tmp/flag.txt'"
+        command = f"docker exec oterronka_ssh_1 sh -c 'grep {flag} /tmp/flag.txt'"
         stdin, stdout, stderr = ssh_session.exec_command(command)
         if stderr.channel.recv_exit_status() != 0:
             return False
@@ -165,7 +165,7 @@ class MyChecker(checkerlib.BaseChecker):
     @ssh_connect()
     def _check_apache_version(self):
         ssh_session = self.client
-        command = f"docker exec pasapasa_web_1 sh -c 'httpd -v | grep \"Apache/2.4.50\'"
+        command = f"docker exec oterronka_web_1 sh -c 'httpd -v | grep \"Apache/2.4.50\'"
         stdin, stdout, stderr = ssh_session.exec_command(command)
 
         if stdout:

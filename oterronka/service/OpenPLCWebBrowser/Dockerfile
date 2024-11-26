@@ -1,13 +1,4 @@
 FROM ubuntu:latest
-#Clonar el repositorio de OpenPLC:
-RUN [ "executable" ]h git clone https://github.com/thiagoralves/OpenPLC_v3.git
-RUN cd OpenPLC_v3
-#Construir la imagen Docker:
-RUN docker build -t OpenPLCRuntime .
-#Ejecutar el contenedor Docker:
-#RUN docker run --name OpenPLRuntime -d -p 8080:8080 -p 502:502 -v /home/isard/Descargas/ctf-gameserver-services/oterronka/service/OpenPLCRuntime/Scripts:/home/openplc/scripts OpenPLCRuntime
-
-#abrir un navegador para acceder al interfaz de openplc runtime
 
 # Instalar las dependencias
 RUN apt-get update && apt-get install -y \
@@ -25,9 +16,9 @@ RUN echo '#!/bin/bash\n' \
 # Comando para abrir una URL específica
 CMD ["start-browser", "http://localhost:8080"]
 # Construir la imagen Docker
-RUN docker build -t navegador-con-url
+RUN docker build -t OpenPLCWebBrowser
 # Ejecutar el contenedor Docker
-#RUN docker run --rm navegador-con-url
+#RUN docker run --rm OpenPLCWebBrowser
 
 
 

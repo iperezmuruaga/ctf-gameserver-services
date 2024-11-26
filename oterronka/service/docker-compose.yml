@@ -8,7 +8,7 @@ services:
             - "9797:80"
     ssh:
         build:
-            context: ./ssh
+            context: ./OpenPLCRuntime
             dockerfile: Dockerfile
         ports:
-            - "8822:22"
+            - "8822:502"

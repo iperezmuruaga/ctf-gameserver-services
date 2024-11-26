@@ -5,7 +5,7 @@ RUN cd OpenPLC_v3```[_{{{CITATION{{{_1{1.4 Installing OpenPLC Runtime on Linux �
 #Construir la imagen Docker:
 RUN docker build -t openplc-docker .```[_{{{CITATION{{{_2{Docker container for OpenPLC Server - GitHub](https://github.com/jpaffrath/docker-openplc)
 #Ejecutar el contenedor Docker:
-RUN docker run --name plc -d -p 8080:8080 -p 502:502 -v /PATH/TO/SCRIPT:/home/openplc/scripts openplc-docker```[_{{{CITATION{{{_2{Docker container for OpenPLC Server - GitHub](https://github.com/jpaffrath/docker-openplc)- Asegúrate de reemplazar `/PATH/TO/SCRIPT` con la ruta a tus scripts de OpenPLC[_{{{CITATION{{{_2{Docker container for OpenPLC Server - GitHub](https://github.com/jpaffrath/docker-openplc).
+#RUN docker run --name plc -d -p 8080:8080 -p 502:502 -v /PATH/TO/SCRIPT:/home/openplc/scripts openplc-docker```[_{{{CITATION{{{_2{Docker container for OpenPLC Server - GitHub](https://github.com/jpaffrath/docker-openplc)- Asegúrate de reemplazar `/PATH/TO/SCRIPT` con la ruta a tus scripts de OpenPLC[_{{{CITATION{{{_2{Docker container for OpenPLC Server - GitHub](https://github.com/jpaffrath/docker-openplc).
 
 #abrir un navegador para acceder al interfaz de openplc runtime
 
@@ -27,7 +27,7 @@ CMD ["start-browser", "http://localhost:8080"]
 # Construir la imagen Docker
 RUN docker build -t navegador-con-url
 # Ejecutar el contenedor Docker
-RUN docker run --rm navegador-con-url
+#RUN docker run --rm navegador-con-url
 
 
 

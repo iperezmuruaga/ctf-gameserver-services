@@ -2,7 +2,7 @@ from pymodbus.client import ModbusTcpClient
 
 def create_client():
     # Create a Modbus TCP client (replace with your Modbus server IP and port)
-    client = ModbusTcpClient('192.168.31.229', port=502)  # Replace with the Modbus server IP address and port
+    client = ModbusTcpClient('127.0.0.1', port=502)  # Replace with the Modbus server IP address and port
     return client
 
 def read_modbus_data(client, address, count):
